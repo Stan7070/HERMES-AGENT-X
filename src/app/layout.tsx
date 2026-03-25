@@ -14,11 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" translate="no">
+    <html lang="fr" suppressHydrationWarning>
       <head>
         <meta name="google" content="notranslate" />
       </head>
-      <body className="flex h-screen w-screen overflow-hidden bg-[#131313] text-[#e5e2e1]">
+      <body
+        className="flex h-screen w-screen overflow-hidden bg-[#131313] text-[#e5e2e1]"
+        suppressHydrationWarning
+      >
         <Sidebar />
         <div className="flex flex-1 flex-col overflow-hidden">
           <Topbar />
@@ -27,7 +30,7 @@ export default function RootLayout({
           </main>
         </div>
         <div className="fixed top-0 left-0 w-full h-[2px] z-[9999]">
-             <div className="ai-pulse" />
+          <div className="ai-pulse" />
         </div>
       </body>
     </html>

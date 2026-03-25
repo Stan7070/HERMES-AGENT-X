@@ -102,11 +102,11 @@ export default function Overview() {
                              <td className="px-8 py-6">
                                 <div className="flex items-center gap-3">
                                    <div className={`w-2 h-2 rounded-full ${
-                                      run.status === 'running' ? 'bg-[#c2c1ff] animate-pulse shadow-[0_0_10px_rgba(194,193,255,1)]' : 
+                                      run.status === 'executing' ? 'bg-[#c2c1ff] animate-pulse shadow-[0_0_10px_rgba(194,193,255,1)]' : 
                                       run.status === 'completed' ? 'bg-[#34c759]' : 'bg-[#ffb4ab]'
                                    }`} />
                                    <span className={`font-bold uppercase tracking-[0.1em] text-[10px] ${
-                                      run.status === 'running' ? 'text-[#e5e2e1]' : 'text-[#414755]'
+                                      run.status === 'executing' ? 'text-[#e5e2e1]' : 'text-[#414755]'
                                    }`}>{run.status}</span>
                                 </div>
                              </td>

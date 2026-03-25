@@ -30,7 +30,7 @@ export default function MemoryVault() {
   // Real filtering logic
   const filteredMemory = useMemo(() => {
     return memory.filter(item => {
-      const matchesTab = activeTab === 'All Context' || item.type.toLowerCase() === activeTab.toLowerCase();
+      const matchesTab = activeTab === 'All Context' || (item.type ?? '').toLowerCase() === activeTab.toLowerCase();
       const matchesSearch = item.key.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            (typeof item.value === 'string' && item.value.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchesTab && matchesSearch;
@@ -132,7 +132,7 @@ export default function MemoryVault() {
                               <div className="text-[10px] font-bold uppercase tracking-widest text-[#c2c1ff]">{item.type}</div>
                               <div className="text-[10px] text-[#8b90a0] flex items-center gap-1 justify-end font-mono">
                                  <Clock size={10} />
-                                 {new Date(item.lastUpdated).toLocaleTimeString()}
+                                 {item.lastUpdated ? new Date(item.lastUpdated).toLocaleTimeString() : '—'}
                               </div>
                            </div>
                            <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all">

@@ -11,12 +11,22 @@ const config: Config = {
       fontFamily: {
         display: ["Manrope", "sans-serif"],
         sans: ["Inter", "sans-serif"],
+        body: ["Inter", "sans-serif"],
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
         accent: "#c2c1ff",
         primary: "#1c0b9f",
+      },
+      animation: {
+        'pulse-ai': 'pulse-ai 2s infinite ease-in-out',
+      },
+      keyframes: {
+        'pulse-ai': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '1' },
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

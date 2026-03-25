@@ -68,6 +68,9 @@ export interface MemoryEntry {
   key: string;
   value: any;
   tags: string[];
+  // Optional fields used in memory page
+  type?: string;
+  lastUpdated?: string;
 }
 
 export interface WorkerManifest {
@@ -75,4 +78,54 @@ export interface WorkerManifest {
   role: string;
   capabilities: string[];
   systemPrompt: string;
+}
+
+export interface SystemLog {
+  id: string;
+  level: 'info' | 'warn' | 'error' | 'debug';
+  source: string;
+  message: string;
+  timestamp: string;
+}
+
+export interface HermesStatus {
+  isHealthy: boolean;
+  version: string;
+  uptime: string;
+  activeRunsCount: number;
+  brain: {
+    model: string;
+    backend: string;
+  };
+  resources: {
+    cpu: number;
+    memory: number;
+    storage: number;
+  };
+}
+
+export interface Skill {
+  id: string;
+  name: string;
+  description: string;
+  type: string;
+  enabled: boolean;
+  lastUsed?: string;
+}
+
+/**
+ * ChatMessage — extended with runtime fields populated by SSE stream.
+ */
+export interface ChatMessage {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp?: string;
+  // SSE stream fields
+  type?: string;
+  status?: string;
+  log?: string;
+  runId?: string;
+  tasks?: AgentTask[];
+  events?: ExecutionEvent[];
 }
