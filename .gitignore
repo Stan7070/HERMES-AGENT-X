@@ -1,0 +1,8 @@
+node_modules
+.next
+.playwright-browsers
+.playwright-tmp
+.env.local
+.env
+public/runs
+companion/node_modules

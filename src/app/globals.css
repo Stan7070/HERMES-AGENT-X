@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #4d79a0;
+  --primary-container: #3d5a75;
+  --on-primary: #ffffff;
+  
+  --surface: #1c2833;
+  --surface-bright: #2c3948;
+  --surface-container: #162029;
+  --surface-container-low: #131b23;
+  --surface-container-high: #24313d;
+  --surface-container-highest: #2c3948;
+  --surface-container-lowest: #0d141b;
+  
+  --on-surface: #ffffff;
+  --on-surface-variant: #94a3b8;
+  
+  --outline: #414b5a;
+  --outline-variant: rgba(148, 163, 184, 0.2);
+  --outline-faint: rgba(148, 163, 184, 0.1);
+  
+  --error: #ffb4ab;
+  --success: #34c759;
+  --amber: #ffb000;
+  
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  
+  --glass-blur: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--surface-container);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--outline-faint);
+}
+
+.glass-floating {
+  background: rgba(32, 31, 31, 0.7);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--outline-variant);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-container-highest);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--outline);
+}
+
+/* Animated Pulse for AI */
+@keyframes pulse-ai {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.ai-pulse {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  width: 100%;
+  animation: pulse-ai 2s infinite ease-in-out;
+}
